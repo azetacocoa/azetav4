@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="images/favicon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azeta® — Product</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+SC:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#B5321E;--red-hover:#982918;
+  --brown-900:#1A0D05;--brown-800:#2E1508;--brown-700:#4A2210;
+  --brown-600:#6B3318;--brown-500:#8C4A25;--brown-400:#B06535;
+  --kraft:#C4A06A;--kraft-light:#D4B880;
+  --paper:#F0E4CC;--paper-light:#F7EFE0;--paper-pale:#FBF6EE;
+  --black:#0C0806;--off-black:#140A04;
+  --divider:rgba(74,34,16,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--paper-pale);color:var(--brown-800);overflow-x:hidden}
+
+/* ── NAV (shared) ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0.95rem 4rem;background:rgba(12,8,6,0.97);border-bottom:1px solid rgba(181,50,30,0.18)}
+.nav-brand{display:flex;flex-direction:column;text-decoration:none}
+.nav-brand-name{font-family:'Cormorant SC',serif;font-size:1.6rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em;line-height:1}
+.nav-brand-motto{font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:#B5321E;font-weight:400;margin-top:2px}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,228,204,0.7);text-decoration:none;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--paper-light)}
+.nav-cta{background:var(--red)!important;color:white!important;padding:0.5rem 1.3rem}
+.nav-cta:hover{background:var(--red-hover)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:400;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--paper-light);transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;background:rgba(12,8,6,0.98);flex-direction:column;align-items:center;justify-content:center;gap:0}
+.nav-drawer.open{display:flex}
+.nav-drawer a{color:rgba(240,228,204,0.75);text-decoration:none;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:400;padding:1.1rem 3rem;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;text-align:center}
+.nav-drawer a:last-child{border-bottom:none;background:var(--red);color:white;margin-top:1rem}
+
+.btn-p{display:inline-flex;align-items:center;gap:0.7rem;background:var(--red);color:white;padding:0.9rem 2.2rem;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .2s;border:none;cursor:pointer}
+.btn-p:hover{background:var(--red-hover);transform:translateY(-1px)}
+
+/* ── BREADCRUMB ── */
+.crumb-bar{padding:6.5rem 4rem 0}
+.crumb-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.08em;color:var(--brown-400)}
+.crumb-inner a{color:var(--brown-400);text-decoration:none}
+.crumb-inner a:hover{color:var(--red)}
+.crumb-inner span.cur{color:var(--brown-700)}
+
+/* ── PRODUCT DETAIL ── */
+.pd-sec{padding:2.5rem 4rem 6rem}
+.pd-inner{max-width:1240px;margin:0 auto}
+.pd-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:4.5rem;align-items:start}
+.pd-imgwrap{background:var(--paper-light);border:1px solid var(--divider);aspect-ratio:0.9;overflow:hidden;position:relative}
+.pd-imgwrap img{width:100%;height:100%;object-fit:contain;padding:2.5rem;display:block}
+.pd-badge{position:absolute;top:1.2rem;left:1.2rem;background:rgba(181,50,30,0.94);color:#fff;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.4rem 0.85rem;font-weight:500}
+.pd-cat-eyebrow{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.7rem}
+.pd-name{font-family:'Cormorant SC',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--brown-900);line-height:1.1;margin-bottom:0.6rem}
+.pd-tag{font-family:'Cormorant',serif;font-size:1.25rem;font-style:italic;color:var(--brown-500);margin-bottom:1.6rem}
+.pd-divider{width:48px;height:2px;background:var(--red);margin-bottom:1.6rem}
+.pd-desc{font-family:'Cormorant',serif;font-size:1.15rem;line-height:1.9;color:var(--brown-600);margin-bottom:2rem}
+.pd-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--divider);border:1px solid var(--divider);margin-bottom:2rem}
+.pd-meta-item{background:#fff;padding:1.1rem 1.3rem}
+.pd-meta-lbl{font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brown-400);margin-bottom:0.35rem}
+.pd-meta-val{font-family:'Cormorant SC',serif;font-size:0.98rem;font-weight:600;color:var(--brown-800)}
+.pd-flu{display:flex;align-items:center;gap:0.6rem}
+.fdots{display:flex;gap:4px}
+.fd{width:8px;height:8px;border-radius:50%;background:var(--divider)}
+.fd.on{background:var(--red)}
+.pd-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.pd-back{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brown-400);text-decoration:none;border-bottom:1px solid var(--divider);padding-bottom:2px}
+.pd-back:hover{color:var(--brown-700);border-color:var(--brown-700)}
+
+.pd-more{margin-top:5rem;padding-top:3rem;border-top:1px solid var(--divider)}
+.pd-more-title{font-family:'Cormorant SC',serif;font-size:1.2rem;font-weight:700;color:var(--brown-900);margin-bottom:1.5rem}
+.pd-more-row{display:flex;gap:1rem;flex-wrap:wrap}
+.pd-more-link{font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--brown-500);text-decoration:none;padding:0.65rem 1.3rem;border:1px solid var(--divider);transition:all .2s}
+.pd-more-link:hover{color:var(--red);border-color:var(--red)}
+
+.pd-notfound{padding:8rem 4rem;text-align:center}
+.pd-notfound h2{font-family:'Cormorant SC',serif;font-size:1.8rem;color:var(--brown-900);margin-bottom:1rem}
+.pd-notfound p{font-family:'Cormorant',serif;font-size:1.05rem;color:var(--brown-500);margin-bottom:1.8rem}
+
+/* ── FOOTER ── */
+footer{background:var(--off-black);border-top:1px solid rgba(181,50,30,0.15);padding:2.2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-brand{font-family:'Cormorant SC',serif;font-size:1.4rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em}
+.footer-motto{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.footer-r{text-align:right}
+.footer-r p{font-size:0.62rem;color:rgba(240,228,204,0.28);letter-spacing:0.08em;line-height:1.7}
+
+@media(max-width:1024px){
+  nav{padding:.9rem 2rem}
+  .crumb-bar{padding:6rem 2.5rem 0}
+  .pd-sec{padding:2rem 2.5rem 5rem}
+  .pd-grid{grid-template-columns:1fr;gap:2.5rem}
+  footer{padding:2rem 2.5rem}
+}
+@media(max-width:768px){
+  nav{padding:.85rem 1.2rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .crumb-bar{padding:5.5rem 1.4rem 0}
+  .pd-sec{padding:1.5rem 1.4rem 4rem}
+  .pd-meta{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.4rem;gap:1rem}
+  .footer-r{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="azeta.html" class="nav-brand">
+    <span class="nav-brand-name">Azeta<sup style="font-size:0.50em;vertical-align:super;opacity:0.7">®</sup></span>
+    <span class="nav-brand-motto">Tree to Bar · Premium Single Origin Cocoa Products</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="azeta.html#products">Products</a></li>
+    <li><a href="azeta.html#story">Our Story</a></li>
+    <li><a href="azeta.html#sustain">Our Farm</a></li>
+    <li><a href="process.html">Tree to Bar</a></li>
+    <li><a href="azeta.html#contact" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="azeta.html#products" onclick="closeMenu()">Products</a>
+  <a href="azeta.html#story" onclick="closeMenu()">Our Story</a>
+  <a href="azeta.html#sustain" onclick="closeMenu()">Our Farm</a>
+  <a href="process.html" onclick="closeMenu()">Tree to Bar</a>
+  <a href="azeta.html#contact" onclick="closeMenu()">Enquire Now</a>
+</div>
+
+<div class="crumb-bar">
+  <div class="crumb-inner" id="crumbBar">
+    <a href="azeta.html">Home</a><span>/</span><a href="azeta.html#products">Products</a><span>/</span><span class="cur" id="crumbCurrent">…</span>
+  </div>
+</div>
+
+<div id="pdRoot"></div>
+
+<footer>
+  <div>
+    <p class="footer-brand">AZETA<sup style="font-size:.55rem;vertical-align:super">®</sup></p>
+    <p class="footer-motto">Tree to Bar · Heart to Taste · Anamalai, Tamil Nadu</p>
+  </div>
+  <div class="footer-r">
+    <p><sup style="font-size:1em;vertical-align:super;opacity:0.7">© </sup>2025 Azeta · All Rights Reserved</p>
+    <p>FSSAI Lic. No. !To be added! · Anamalai, Tamil Nadu, India</p>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script>
+function toggleMenu(){
+  const d=document.getElementById('navDrawer'),b=document.getElementById('hamburger');
+  const o=d.classList.toggle('open');
+  b.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+function fluidityDots(n){
+  if(n===null||n===undefined)return '';
+  let dots='';
+  for(let i=1;i<=5;i++)dots+=`<div class="fd${i<=n?' on':''}"></div>`;
+  return `<div class="pd-flu"><div class="fdots">${dots}</div></div>`;
+}
+
+function renderProductPage(){
+  const params=new URLSearchParams(window.location.search);
+  const id=params.get('id');
+  const root=document.getElementById('pdRoot');
+  const product=typeof azetaGetProduct==='function'?azetaGetProduct(id):null;
+
+  if(!product){
+    document.getElementById('crumbCurrent').textContent='Not found';
+    root.innerHTML=`
+      <div class="pd-notfound">
+        <h2>Product Not Found</h2>
+        <p>We couldn't find the product you were looking for. Take a look at our full range instead.</p>
+        <a href="azeta.html#products" class="btn-p">Browse All Products</a>
+      </div>`;
+    document.title='Azeta® — Product Not Found';
+    return;
+  }
+
+  const category=azetaGetCategory(product.category);
+  document.title=`Azeta® — ${product.name}`;
+  document.getElementById('crumbCurrent').textContent=product.name;
+
+  root.innerHTML=`
+    <section class="pd-sec">
+      <div class="pd-inner">
+        <div class="pd-grid">
+          <div class="pd-imgwrap">
+            ${product.badge?`<span class="pd-badge">${product.badge}</span>`:''}
+            <img src="${product.img}" alt="${product.alt}" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+          <div>
+            <p class="pd-cat-eyebrow">${category?category.label:''}</p>
+            <h1 class="pd-name">${product.name}</h1>
+            <p class="pd-tag">${product.tag}</p>
+            <div class="pd-divider"></div>
+            <p class="pd-desc">${product.desc}</p>
+            <div class="pd-meta">
+              <div class="pd-meta-item">
+                <div class="pd-meta-lbl">Minimum Order</div>
+                <div class="pd-meta-val">${product.qty}</div>
+              </div>
+              <div class="pd-meta-item">
+                <div class="pd-meta-lbl">Ingredients</div>
+                <div class="pd-meta-val">${product.ingredients||'—'}</div>
+              </div>
+              ${product.fluidity!==null?`
+              <div class="pd-meta-item" style="grid-column:1/-1">
+                <div class="pd-meta-lbl">Fluidity</div>
+                <div class="pd-meta-val">${fluidityDots(product.fluidity)}</div>
+              </div>`:''}
+            </div>
+            <div class="pd-actions">
+              <a href="azeta.html#contact" class="btn-p">Enquire About This Product</a>
+              <a href="azeta.html#products" class="pd-back">← Back to Products</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-more">
+          <p class="pd-more-title">More from ${category?category.label:'Azeta'}</p>
+          <div class="pd-more-row">
+            ${AZETA_PRODUCTS.filter(p=>p.category===product.category && p.id!==product.id)
+              .map(p=>`<a class="pd-more-link" href="product.html?id=${p.id}">${p.name}</a>`).join('')}
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+renderProductPage();
+</script>
+</body>
+</html>

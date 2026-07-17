@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="images/favicon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azeta® — Tree to Bar Process | Anamalai, Tamil Nadu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+SC:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#B5321E;--red-hover:#982918;
+  --brown-900:#1A0D05;--brown-800:#2E1508;--brown-700:#4A2210;
+  --brown-600:#6B3318;--brown-500:#8C4A25;--brown-400:#B06535;
+  --kraft:#C4A06A;--kraft-light:#D4B880;
+  --paper:#F0E4CC;--paper-light:#F7EFE0;--paper-pale:#FBF6EE;
+  --black:#0C0806;--off-black:#140A04;
+  --divider:rgba(74,34,16,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--brown-900);color:var(--brown-800);overflow-x:hidden}
+
+/* ── NAV (shared) ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0.95rem 4rem;background:rgba(12,8,6,0.97);border-bottom:1px solid rgba(181,50,30,0.18)}
+.nav-brand{display:flex;flex-direction:column;text-decoration:none}
+.nav-brand-name{font-family:'Cormorant SC',serif;font-size:1.6rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em;line-height:1}
+.nav-brand-motto{font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:#B5321E;font-weight:400;margin-top:2px}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,228,204,0.7);text-decoration:none;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--paper-light)}
+.nav-links a.cur{color:var(--paper-light)}
+.nav-cta{background:var(--red)!important;color:white!important;padding:0.5rem 1.3rem}
+.nav-cta:hover{background:var(--red-hover)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:400;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--paper-light);transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;background:rgba(12,8,6,0.98);flex-direction:column;align-items:center;justify-content:center;gap:0}
+.nav-drawer.open{display:flex}
+.nav-drawer a{color:rgba(240,228,204,0.75);text-decoration:none;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:400;padding:1.1rem 3rem;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;text-align:center}
+.nav-drawer a:last-child{border-bottom:none;background:var(--red);color:white;margin-top:1rem}
+
+.btn-p{display:inline-flex;align-items:center;gap:0.7rem;background:var(--red);color:white;padding:0.9rem 2.2rem;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .2s;border:none;cursor:pointer}
+.btn-p:hover{background:var(--red-hover);transform:translateY(-1px)}
+.btn-g{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(240,228,204,0.65);text-decoration:none;font-weight:400;border-bottom:1px solid rgba(240,228,204,0.3);padding-bottom:1px}
+.btn-g:hover{color:var(--paper-light);border-color:var(--paper-light)}
+
+/* ── PAGE HEADER ── */
+.pp-header{padding:9.5rem 4rem 3rem}
+.pp-header-inner{max-width:1240px;margin:0 auto;max-width:760px}
+.eyebrow{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.8rem}
+.sh{font-family:'Cormorant SC',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--paper-light);line-height:1.1;margin-bottom:1.2rem;letter-spacing:0.02em}
+.sh em{font-family:'Cormorant',serif;font-style:italic;font-weight:400;color:var(--kraft-light)}
+.pp-header-inner p{font-family:'Cormorant',serif;font-size:1.18rem;line-height:1.9;color:rgba(240,228,204,0.72);font-weight:400}
+.pp-header-inner p strong{color:var(--paper-light);font-weight:500}
+
+/* ── FLOW STRIP ── */
+.sec{padding:2rem 4rem 7rem;position:relative;z-index:1}
+.sec-inner{max-width:1240px;margin:0 auto}
+.flow-strip{display:flex;border:1px solid rgba(255,255,255,0.05);margin-bottom:0;flex-wrap:wrap}
+.fnode{flex:1;min-width:100px;padding:1.1rem 0.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.03);transition:background .25s;cursor:default}
+.fnode:last-child{border-right:none}
+.fnode:hover{background:rgba(181,50,30,0.15)}
+.fnode-num{font-family:'Cormorant SC',serif;font-size:1.35rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:0.2rem}
+.fnode-lbl{font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--kraft-light);font-weight:400}
+
+.ttb-steps{display:flex;flex-direction:column}
+.ttb-step{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,0.05)}
+.ttb-step:last-child{border-bottom:none}
+.ttb-step.rev .ttb-si{order:2}
+.ttb-step.rev .ttb-sb{order:1}
+.ttb-si{overflow:hidden;min-height:340px}
+.ttb-si img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.ttb-step:hover .ttb-si img{transform:scale(1.03)}
+.ttb-sb{padding:3.5rem;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,0.02)}
+.ttb-sb-num{font-family:'Cormorant SC',serif;font-size:3rem;font-weight:700;color:rgba(181,50,30,0.18);line-height:1;margin-bottom:0.4rem}
+.ttb-sb-title{font-family:'Cormorant SC',serif;font-size:1.5rem;font-weight:700;color:var(--paper-light);margin-bottom:0.9rem;letter-spacing:0.04em}
+.ttb-sb-desc{font-size:0.87rem;color:rgba(240,228,204,0.58);line-height:1.88}
+
+/* ── CLOSING CTA ── */
+.pp-cta{padding:5rem 4rem 7rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.pp-cta-inner{max-width:640px;margin:0 auto}
+.pp-cta h3{font-family:'Cormorant SC',serif;font-size:1.8rem;font-weight:700;color:var(--paper-light);margin-bottom:1rem}
+.pp-cta h3 em{font-family:'Cormorant',serif;font-style:italic;font-weight:400;color:var(--kraft-light)}
+.pp-cta p{font-family:'Cormorant',serif;font-size:1.08rem;color:rgba(240,228,204,0.6);line-height:1.8;margin-bottom:2rem}
+.pp-cta-actions{display:flex;gap:1.2rem;align-items:center;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{background:var(--off-black);border-top:1px solid rgba(181,50,30,0.15);padding:2.2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-brand{font-family:'Cormorant SC',serif;font-size:1.4rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em}
+.footer-motto{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.footer-r{text-align:right}
+.footer-r p{font-size:0.62rem;color:rgba(240,228,204,0.28);letter-spacing:0.08em;line-height:1.7}
+
+@media(max-width:1024px){
+  nav{padding:.9rem 2rem}
+  .pp-header{padding:8rem 2.5rem 2.5rem}
+  .sec{padding:1.5rem 2.5rem 5rem}
+  .ttb-step,.ttb-step.rev{grid-template-columns:1fr}
+  .ttb-step.rev .ttb-si,.ttb-step.rev .ttb-sb{order:unset}
+  .ttb-si{min-height:260px}
+  .ttb-sb{padding:2.5rem}
+  .pp-cta{padding:4rem 2.5rem 5rem}
+  footer{padding:2rem 2.5rem}
+}
+@media(max-width:768px){
+  nav{padding:.85rem 1.2rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .pp-header{padding:7rem 1.4rem 2rem}
+  .sec{padding:1rem 1.4rem 4rem}
+  .flow-strip{flex-wrap:wrap}
+  .fnode{min-width:25%}
+  .ttb-sb{padding:2rem 1.4rem}
+  .pp-cta{padding:3rem 1.4rem 4rem}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.4rem;gap:1rem}
+  .footer-r{text-align:center}
+}
+@media(max-width:480px){
+  .fnode{min-width:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Azeta<sup style="font-size:0.50em;vertical-align:super;opacity:0.7">®</sup></span>
+    <span class="nav-brand-motto">Tree to Bar · Premium Single Origin Cocoa Products</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="index.html#story">Our Story</a></li>
+    <li><a href="index.html#sustain">Our Farm</a></li>
+    <li><a href="process.html" class="cur">Tree to Bar</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#products" onclick="closeMenu()">Products</a>
+  <a href="index.html#story" onclick="closeMenu()">Our Story</a>
+  <a href="index.html#sustain" onclick="closeMenu()">Our Farm</a>
+  <a href="process.html" onclick="closeMenu()">Tree to Bar</a>
+  <a href="index.html#contact" onclick="closeMenu()">Enquire Now</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="pp-header">
+  <div class="pp-header-inner">
+    <p class="eyebrow">Our Process</p>
+    <h2 class="sh">Tree to Bar — <em>Every Step, In House</em></h2>
+    <p>At Azeta, we control chocolate from the moment a pod is harvested to the moment a bar is wrapped. <strong>No third party processors. No compromise.</strong> Every stage is performed under our own roof, giving us total control over flavour, texture, and consistency.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="sec-inner">
+    <div class="flow-strip">
+      <div class="fnode"><div class="fnode-num">01</div><div class="fnode-lbl">Harvest</div></div>
+      <div class="fnode"><div class="fnode-num">02</div><div class="fnode-lbl">Fermentation</div></div>
+      <div class="fnode"><div class="fnode-num">03</div><div class="fnode-lbl">Sun Drying</div></div>
+      <div class="fnode"><div class="fnode-num">04</div><div class="fnode-lbl">Sorting</div></div>
+      <div class="fnode"><div class="fnode-num">05</div><div class="fnode-lbl">Roasting</div></div>
+      <div class="fnode"><div class="fnode-num">06</div><div class="fnode-lbl">Grinding</div></div>
+      <div class="fnode"><div class="fnode-num">07</div><div class="fnode-lbl">Tempering</div></div>
+    </div>
+    <div class="ttb-steps">
+
+      <div class="ttb-step">
+        <div class="ttb-si"><img src="images/process-harvest.png" loading="lazy" decoding="async" alt="Hands sorting freshly harvested cacao beans"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">01</div>
+          <div class="ttb-sb-title">Harvest</div>
+          <p class="ttb-sb-desc">Mature cacao pods are carefully hand harvested at peak ripeness. Fresh beans are extracted on site and prepared immediately, preserving their natural integrity for consistent processing.</p>
+        </div>
+      </div>
+
+      <div class="ttb-step rev">
+        <div class="ttb-si"><img src="images/process-ferment.png" loading="lazy" decoding="async" alt="Cacao beans fermenting in a traditional wooden box"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">02</div>
+          <div class="ttb-sb-title">Fermentation</div>
+          <p class="ttb-sb-desc">Beans ferment using the traditional wooden box method for around 6–7 days. Checked daily, native yeasts unlock the complex flavour precursors hidden inside each bean, a step that makes or breaks the final chocolate.</p>
+        </div>
+      </div>
+
+      <div class="ttb-step">
+        <div class="ttb-si"><img src="images/process-drying.png" loading="lazy" decoding="async" alt="Cacao beans sun drying under a polythene tunnel in Anamalai"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">03</div>
+          <div class="ttb-sb-title">Sun Drying</div>
+          <p class="ttb-sb-desc">Fermented beans are sun dried under controlled conditions in Anamalai's warm climate, stabilising flavour, preventing mould, and preserving the aromatic compounds developed during fermentation.</p>
+        </div>
+      </div>
+
+      <div class="ttb-step rev">
+        <div class="ttb-si"><img src="images/process-roasting.png" loading="lazy" decoding="async" alt="Cacao beans being roasted in a drum roaster"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">04 — 05</div>
+          <div class="ttb-sb-title">Sorting & Roasting</div>
+          <p class="ttb-sb-desc">Dried beans are hand sorted and visually inspected, anything underfermented or damaged is removed. The remaining beans are gently roasted to unlock their full aromatic potential and deepen flavour complexity.</p>
+        </div>
+      </div>
+
+      <div class="ttb-step">
+        <div class="ttb-si"><img src="images/process-grinding.png" loading="lazy" decoding="async" alt="Cocoa liquor being ground and conched in a melanger"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">06</div>
+          <div class="ttb-sb-title">Cracking, Winnowing & Grinding</div>
+          <p class="ttb-sb-desc">Roasted beans are cracked and winnowed to clean cacao nibs, then ground into smooth cocoa liquor. Refining and conching mellow sharp notes and build a velvety, complex texture.</p>
+        </div>
+      </div>
+
+      <div class="ttb-step rev">
+        <div class="ttb-si"><img src="images/process-tempering.png" loading="lazy" decoding="async" alt="Chocolate tempering machine at Azeta"></div>
+        <div class="ttb-sb">
+          <div class="ttb-sb-num">07</div>
+          <div class="ttb-sb-title">Tempering & Moulding</div>
+          <p class="ttb-sb-desc">Chocolate is precisely tempered through controlled heating and cooling to stabilise cocoa butter crystals, giving every bar its glossy finish and clean snap before moulding and packaging.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pp-cta">
+  <div class="pp-cta-inner">
+    <h3>Taste the Difference <em>In House</em> Makes</h3>
+    <p>Explore the full Azeta range, crafted from the same single origin Anamalai cacao at every stage of this process.</p>
+    <div class="pp-cta-actions">
+      <a href="index.html#products" class="btn-p">Explore Products</a>
+      <a href="index.html#contact" class="btn-g">Enquire Now</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <p class="footer-brand">AZETA<sup style="font-size:.55rem;vertical-align:super">®</sup></p>
+    <p class="footer-motto">Tree to Bar · Heart to Taste · Anamalai, Tamil Nadu</p>
+  </div>
+  <div class="footer-r">
+    <p><sup style="font-size:1em;vertical-align:super;opacity:0.7">© </sup>2025 Azeta · All Rights Reserved</p>
+    <p>FSSAI Lic. No. !To be added! · Anamalai, Tamil Nadu, India</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const d=document.getElementById('navDrawer'),b=document.getElementById('hamburger');
+  const o=d.classList.toggle('open');
+  b.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:0.07});
+document.querySelectorAll('.ttb-step').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(16px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

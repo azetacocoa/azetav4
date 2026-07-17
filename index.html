@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="images/favicon.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azeta® — Tree to Bar. Heart to Taste. | Anamalai, Tamil Nadu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/hero-bars.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+SC:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#B5321E;--red-hover:#982918;
+  --brown-900:#1A0D05;--brown-800:#2E1508;--brown-700:#4A2210;
+  --brown-600:#6B3318;--brown-500:#8C4A25;--brown-400:#B06535;
+  --brown-300:#C8895A;--brown-200:#DDB48A;--brown-100:#EDD5B5;
+  --kraft:#C4A06A;--kraft-light:#D4B880;--kraft-pale:#E8D4A8;
+  --paper:#F0E4CC;--paper-light:#F7EFE0;--paper-pale:#FBF6EE;
+  --black:#0C0806;--off-black:#140A04;
+  --divider:rgba(74,34,16,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--paper-pale);color:var(--brown-800);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0.95rem 4rem;background:rgba(12,8,6,0.97);border-bottom:1px solid rgba(181,50,30,0.18)}
+.nav-brand{display:flex;flex-direction:column;text-decoration:none}
+.nav-brand-name{font-family:'Cormorant SC',serif;font-size:1.6rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em;line-height:1}
+.nav-brand-motto{font-size:0.52rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--kraft);font-weight:400;margin-top:2px}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,228,204,0.7);text-decoration:none;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--paper-light)}
+.nav-cta{background:var(--red)!important;color:white!important;padding:0.5rem 1.3rem}
+.nav-cta:hover{background:var(--red-hover)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:400;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--paper-light);transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;background:rgba(12,8,6,0.98);flex-direction:column;align-items:center;justify-content:center;gap:0}
+.nav-drawer.open{display:flex}
+.nav-drawer a{color:rgba(240,228,204,0.75);text-decoration:none;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:400;padding:1.1rem 3rem;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;text-align:center}
+.nav-drawer a:last-child{border-bottom:none;background:var(--red);color:white;margin-top:1rem}
+
+/* ── HERO ── */
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background-image:url('images/hero-bars.png');background-size:cover;background-position:center center;background-repeat:no-repeat;filter:brightness(0.32) saturate(0.85)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(12,8,6,0.96) 0%,rgba(12,8,6,0.5) 45%,transparent 75%)}
+.hero-inner{position:relative;z-index:2;padding:0 4rem 5rem;width:100%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:flex-end}.hero-eyebrow{display:inline-flex;align-items:center;gap:0.8rem;font-size:0.6rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.6rem}
+.hero-logo{font-family:'Cormorant SC',serif;font-size:clamp(3.5rem,8vw,7.5rem);font-weight:700;color:var(--paper-light);letter-spacing:0.1em;line-height:0.9;margin-bottom:0.5rem}
+.hero-motto{font-family:'Cormorant',serif;font-size:clamp(1.1rem,2.2vw,1.7rem);font-style:italic;color:var(--kraft-light);letter-spacing:0.06em;margin-bottom:1.8rem;line-height:1.4}
+.hero-desc{font-size:0.88rem;line-height:1.9;color:rgba(240,228,204,0.65);max-width:520px;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:0.7rem;background:var(--red);color:white;padding:0.9rem 2.2rem;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .2s;border:none;cursor:pointer}
+.btn-p:hover{background:var(--red-hover);transform:translateY(-1px)}
+.btn-g{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(240,228,204,0.65);text-decoration:none;font-weight:400;border-bottom:1px solid rgba(240,228,204,0.3);padding-bottom:1px}
+.btn-g:hover{color:var(--paper-light);border-color:var(--paper-light)}
+.hero-stats{display:flex;flex-direction:column;gap:0;border:1px solid rgba(181,50,30,0.2);background:rgba(12,8,6,0.7)}
+.hstat{padding:1.2rem 2rem;text-align:center;border-bottom:1px solid rgba(181,50,30,0.15)}
+.hstat:last-child{border-bottom:none}
+.hstat-num{font-family:'Cormorant SC',serif;font-size:1.8rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:0.2rem}
+.hstat-lbl{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--kraft)}
+
+/* ── GENERIC SECTION ── */
+.sec{padding:7rem 4rem;position:relative;z-index:1}
+.sec-inner{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.8rem}
+.sh{font-family:'Cormorant SC',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--brown-900);line-height:1.1;margin-bottom:1.2rem;letter-spacing:0.02em}
+.sh em{font-family:'Cormorant',serif;font-style:italic;font-weight:400;color:var(--brown-500)}
+.sp{font-family:'Cormorant',serif;font-size:1.1rem;line-height:1.92;color:var(--brown-600);font-weight:400}
+.sp+.sp{margin-top:1rem}
+.divdr{width:48px;height:2px;background:var(--red);margin:1.8rem 0}
+
+/* ── STORY ── */
+.story-sec{background:var(--paper-pale);padding-top:2.5rem}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.story-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.story-img-main{grid-column:1/-1;overflow:hidden;aspect-ratio:16/9}
+.story-img-main img{width:100%;height:100%;object-fit:cover;display:block}
+.story-img-sub{overflow:hidden;aspect-ratio:1}
+.story-img-sub img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.story-img-sub:hover img{transform:scale(1.04)}
+.story-pq{grid-column:1/-1;order:-1;border-left:3px solid var(--red);padding:1.2rem 1.5rem;background:rgba(181,50,30,0.05)}
+.story-pq p{font-family:'Cormorant',serif;font-size:1.1rem;font-style:italic;color:var(--brown-700);line-height:1.7}
+.story-pq cite{display:block;margin-top:0.6rem;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brown-400);font-style:normal}
+.story-diff{background:var(--brown-900);padding:2rem 2.5rem;margin-top:1.5rem}
+.story-diff-t{font-family:'Cormorant SC',serif;font-size:0.85rem;font-weight:600;color:var(--red);letter-spacing:0.1em;margin-bottom:0.8rem}
+.story-diff p{font-size:0.85rem;line-height:1.85;color:rgba(240,228,204,0.7);max-width:900px}
+.story-bdg{display:flex;gap:0;margin-top:2rem;flex-wrap:wrap}
+.sbdg{padding:0 2rem 0 0}
+.sbdg:not(:first-child){border-left:1px }
+.sbdg p:first-child{font-family:'Cormorant SC',serif;font-size:1.25rem;font-weight:700;color:var(--brown-700)}
+.sbdg p:last-child{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brown-400);margin-top:2px}
+
+/* ── SUSTAINABILITY ── */
+.sustain-sec{background:var(--paper-light)}
+.sustain-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4rem}
+.sustain-img img{width:100%;height:800px;object-fit:cover;display:block}
+.scards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.scard{padding:1.8rem;background:var(--paper-pale);border:1px solid var(--divider);border-left:3px solid var(--red)}
+.scard h4{font-family:'Cormorant SC',serif;font-size:0.92rem;font-weight:600;color:var(--brown-800);margin-bottom:0.5rem;letter-spacing:0.04em}
+.scard p{font-size:0.84rem;color:var(--brown-500);line-height:1.78}
+.sustain-bottom{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:4rem;overflow:hidden}
+.sustain-bottom-img img{width:100%;height:100%;min-height:340px;object-fit:cover;display:block}
+.sustain-bottom-text{padding:3rem;background:var(--brown-900);display:flex;flex-direction:column;justify-content:center}
+.sustain-bottom-text .eyebrow{color:var(--red)}
+.sustain-bottom-text h3{font-family:'Cormorant SC',serif;font-size:1.5rem;font-weight:700;color:var(--paper-light);margin-bottom:1rem}
+.sustain-bottom-text h3 em{font-family:'Cormorant',serif;font-style:italic;font-weight:400;color:var(--kraft-light)}
+.sustain-bottom-text p{font-size:0.85rem;color:rgba(240,228,204,0.65);line-height:1.88}
+.sustain-loc{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)}
+.sustain-loc .lbl{font-size:0.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.35rem}
+.sustain-loc .val{font-family:'Cormorant SC',serif;font-size:.95rem;font-weight:600;color:var(--paper-light)}
+.sustain-loc .sub{font-size:.76rem;color:rgba(240,228,204,.4);margin-top:2px}
+
+/* ── TREE TO BAR ── */
+.ttb-sec{background:var(--brown-900)}
+.ttb-sec .eyebrow{color:var(--red)}
+.ttb-sec .sh{color:var(--paper-light)}
+.ttb-sec .sh em{color:var(--kraft-light)}
+.ttb-intro{max-width:640px;margin-bottom:2.5rem}
+.ttb-intro p{font-family:'Cormorant',serif;font-size:1.18rem;line-height:1.9;color:rgba(240,228,204,0.72);font-weight:400}
+.ttb-intro strong{color:var(--paper-light);font-weight:500}
+.ttb-brief-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center}
+.ttb-brief-img{overflow:hidden;aspect-ratio:4/5;border:1px solid var(--divider)}
+.ttb-brief-img img{width:100%;height:100%;object-fit:cover;display:block}
+.flow-strip{display:flex;border:1px solid rgba(255,255,255,0.05);margin-bottom:0;flex-wrap:wrap}
+.fnode{flex:1;min-width:100px;padding:1.1rem 0.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.03);transition:background .25s;cursor:default}
+.fnode:last-child{border-right:none}
+.fnode:hover{background:rgba(181,50,30,0.15)}
+.fnode-num{font-family:'Cormorant SC',serif;font-size:1.35rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:0.2rem}
+.fnode-lbl{font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--kraft-light);font-weight:400}
+.ttb-steps{display:flex;flex-direction:column}
+.ttb-step{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,0.05)}
+.ttb-step:last-child{border-bottom:none}
+.ttb-step.rev .ttb-si{order:2}
+.ttb-step.rev .ttb-sb{order:1}
+.ttb-si{overflow:hidden;min-height:340px}
+.ttb-si img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.ttb-step:hover .ttb-si img{transform:scale(1.03)}
+.ttb-sb{padding:3.5rem;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,0.02)}
+.ttb-sb-num{font-family:'Cormorant SC',serif;font-size:3rem;font-weight:700;color:rgba(181,50,30,0.18);line-height:1;margin-bottom:0.4rem}
+.ttb-sb-title{font-family:'Cormorant SC',serif;font-size:1.5rem;font-weight:700;color:var(--paper-light);margin-bottom:0.9rem;letter-spacing:0.04em}
+.ttb-sb-desc{font-size:0.87rem;color:rgba(240,228,204,0.58);line-height:1.88}
+
+/* ── PRODUCTS ── */
+.prod-sec{background:var(--paper-pale);padding-bottom:2.5rem}
+.prod-sec .sh em{color:var(--brown-500)}
+.prod-cat-nav{display:flex;gap:0;border-bottom:1px solid var(--divider);margin-bottom:4.5rem;flex-wrap:wrap;position:sticky;top:64px;background:var(--paper-pale);z-index:20}
+.pcbtn{padding:0.9rem 2rem;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;color:var(--brown-400);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;font-family:'Jost',sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:44px}
+.pcbtn.active{color:var(--red);border-bottom-color:var(--red)}
+.pcbtn:hover{color:var(--brown-700)}
+
+.prod-category{margin-bottom:5.5rem;scroll-margin-top:120px}
+.prod-category:last-child{margin-bottom:0}
+.pcat-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:0.6rem}
+.pcat-title{font-family:'Cormorant SC',serif;font-size:1.5rem;font-weight:700;color:var(--brown-900);letter-spacing:0.03em}
+.pcat-count{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--brown-400)}
+.psec-intro{max-width:700px;margin-bottom:2.2rem}
+.psec-intro p{font-family:'Cormorant',serif;font-size:1.05rem;line-height:1.88;color:var(--brown-600)}
+
+.prod-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem}
+.prod-card{background:#fff;border:1px solid var(--divider);overflow:hidden;transition:box-shadow .3s,transform .3s;text-decoration:none;display:flex;flex-direction:column;height:100%;color:inherit;cursor:pointer}
+.prod-card:hover{box-shadow:0 8px 32px rgba(74,34,16,0.13);transform:translateY(-4px)}
+.pc-img{width:100%;aspect-ratio:0.85;overflow:hidden;background:var(--paper-light);position:relative;flex-shrink:0}
+.pc-img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .5s;padding:14px}
+.prod-card:hover .pc-img img{transform:scale(1.05)}
+.pc-badge{position:absolute;top:0.6rem;left:0.6rem;background:rgba(181,50,30,0.92);color:#fff;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.25rem 0.55rem;font-weight:500}
+.pc-body{padding:1rem 1rem 1.15rem;display:flex;flex-direction:column;flex:1}
+.pc-name{font-family:'Cormorant SC',serif;font-size:0.95rem;font-weight:700;color:var(--brown-900);margin-bottom:0.25rem;line-height:1.25}
+.pc-tag{font-family:'Cormorant',serif;font-size:0.86rem;font-style:italic;color:var(--brown-500);line-height:1.4}
+.pc-arrow{display:inline-flex;align-items:center;gap:0.3rem;margin-top:auto;padding-top:0.6rem;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);font-weight:500}
+.prod-card:hover .pc-arrow{gap:0.5rem}
+
+/* ── CONTACT ── */
+.contact-sec{background:var(--brown-900);position:relative;overflow:hidden}
+.contact-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 0.9fr;gap:6rem;align-items:start}
+.contact-sec .eyebrow{color:var(--red)}
+.contact-sec .sh{color:var(--paper-light)}
+.contact-sec .sh em{color:var(--kraft-light)}
+.contact-sec .sp{color:rgba(240,228,204,0.6);margin-bottom:2rem}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05);margin-top:2rem}
+.cform input,.cform select,.cform textarea{background:rgba(255,255,255,0.04);border:none;padding:1rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.84rem;color:var(--paper-light);outline:none;transition:background .2s;width:100%}
+.cform input::placeholder,.cform textarea::placeholder{color:rgba(240,228,204,0.25)}
+.cform input:focus,.cform textarea:focus,.cform select:focus{background:rgba(255,255,255,0.08)}
+.cform select{color:rgba(240,228,204,0.4)}
+.cform select option{background:var(--brown-900);color:var(--paper-light)}
+.cform .full{grid-column:1/-1}
+.cform textarea{min-height:105px;resize:vertical}
+.cform-submit{grid-column:1/-1;background:var(--red);color:white;border:none;padding:1.1rem;font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.cform-submit:hover{background:var(--red-hover)}
+.cdetail{padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.cdetail:first-child{padding-top:0}
+.cdetail:last-child{border-bottom:none}
+.cdetail-lbl{font-size:0.56rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:0.35rem}
+.cdetail-val{font-family:'Cormorant SC',serif;font-size:1rem;font-weight:600;color:var(--paper-light);letter-spacing:0.02em;line-height:1.4}
+.fssai-badge{display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;padding:0.5rem 1rem;border:1px solid rgba(181,50,30,0.25);background:rgba(181,50,30,0.08)}
+.fssai-badge p{font-size:0.62rem;letter-spacing:0.12em;color:var(--kraft-light)}
+.ship-note{margin-top:1.5rem;padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06)}
+.ship-note p{font-size:0.78rem;color:rgba(240,228,204,0.5);line-height:1.7}
+.ship-note strong{color:var(--kraft-light);font-weight:500}
+
+/* ── FOOTER ── */
+footer{background:var(--off-black);border-top:1px solid rgba(181,50,30,0.15);padding:2.2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-brand{font-family:'Cormorant SC',serif;font-size:1.4rem;font-weight:700;color:var(--paper-light);letter-spacing:0.12em}
+.footer-motto{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-top:3px}
+.footer-r{text-align:right}
+.footer-r p{font-size:0.62rem;color:rgba(240,228,204,0.28);letter-spacing:0.08em;line-height:1.7}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .6s ease .1s both}
+.hero-logo{animation:fadeUp .7s ease .2s both}
+.hero-motto{animation:fadeUp .7s ease .35s both}
+.hero-desc{animation:fadeUp .7s ease .5s both}
+.hero-actions{animation:fadeUp .7s ease .62s both}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:.9rem 2rem}
+  .sec{padding:5rem 2.5rem}
+  .hero-inner{grid-template-columns:1fr;padding:5rem 2.5rem 4rem;gap:2.5rem;align-items:flex-start}
+  .hero-stats{flex-direction:row;border:none;background:none;gap:0}
+  .hstat{flex:1;border:1px solid rgba(181,50,30,0.2);border-right:none;background:rgba(12,8,6,0.7)}
+  .hstat:last-child{border-right:1px solid rgba(181,50,30,0.2)}
+  .story-grid{grid-template-columns:1fr;gap:3rem}
+  .sustain-intro{grid-template-columns:1fr;gap:3rem}
+  .sustain-bottom{grid-template-columns:1fr}
+  .sustain-bottom-img img{min-height:280px}
+  .ttb-step,.ttb-step.rev{grid-template-columns:1fr}
+  .ttb-step.rev .ttb-si,.ttb-step.rev .ttb-sb{order:unset}
+  .ttb-si{min-height:260px}
+  .ttb-sb{padding:2.5rem}
+  .ttb-brief-grid{grid-template-columns:1fr;gap:2.5rem}
+  .ttb-brief-img{aspect-ratio:16/9;order:-1}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+  .contact-inner{grid-template-columns:1fr;gap:3.5rem}
+  footer{padding:2rem 2.5rem}
+  /* hero bg: keep bars centred on tablet */
+  .hero-bg{background-position:center center}
+}
+@media(max-width:768px){
+  nav{padding:.85rem 1.2rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .sec{padding:4rem 1.4rem}
+  .prod-sec{padding-top:2.5rem!important;padding-bottom:2rem!important}
+  .story-sec{padding-top:2rem!important}
+  .hero{min-height:unset;align-items:flex-start}
+  .hero-bg{background-position:center center}
+  .hero-inner{
+    padding:100px 1.4rem 3rem;
+    gap:1.5rem;
+    grid-template-columns:1fr;
+    align-items:flex-start;
+  }
+  .hero-overlay{background:linear-gradient(to bottom,rgba(12,8,6,0.85) 0%,rgba(12,8,6,0.5) 50%,rgba(12,8,6,0.9) 100%)}
+  .hero-desc{max-width:100%;font-size:0.85rem}
+  .hero-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    flex-direction:unset;
+    border:none;
+    background:none;
+    gap:0;
+  }
+  .hstat{
+    border:1px solid rgba(181,50,30,0.2);
+    border-right:none;
+    border-top:none;
+    background:rgba(12,8,6,0.7);
+    min-width:unset;
+    flex:unset;
+    padding:0.9rem 1rem;
+  }
+  .hstat:nth-child(2){border-right:1px solid rgba(181,50,30,0.2)}
+  .hstat:nth-child(3){border-bottom:none}
+  .hstat:nth-child(4){border-right:1px solid rgba(181,50,30,0.2);border-bottom:none}
+  .hstat-num{font-size:1.4rem}
+  .story-images{grid-template-columns:1fr}
+  .story-img-sub{aspect-ratio:4/3}
+  .story-pq{grid-column:auto}
+  .story-bdg{gap:0;flex-direction:column}
+  .sbdg{padding:0.8rem 0;border-left:none!important;border-bottom:1px solid var(--divider)}
+  .sbdg:last-child{border-bottom:none}
+  .scards{grid-template-columns:1fr}
+  .sustain-bottom-text{padding:2rem 1.4rem}
+  .flow-strip{flex-wrap:wrap}
+  .fnode{min-width:25%}
+  .ttb-sb{padding:2rem 1.4rem}
+
+  /* ── Products: mobile fixes ── */
+  .prod-cat-nav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    overflow-x:unset;
+    flex-wrap:unset;
+    padding-bottom:0;
+    border-bottom:1px solid var(--divider);
+    margin-bottom:3rem;
+  }
+  .pcbtn{
+    white-space:normal;
+    padding:.85rem 0.6rem;
+    font-size:0.58rem;
+    text-align:center;
+    border-right:1px solid var(--divider);
+    border-bottom:2px solid transparent;
+    margin-bottom:0;
+    line-height:1.35;
+  }
+  .pcbtn:nth-child(2){border-right:none}
+  .pcbtn:nth-child(3){border-top:1px solid var(--divider);border-right:1px solid var(--divider)}
+  .pcbtn:nth-child(4){border-top:1px solid var(--divider);border-right:none}
+  .pcbtn.active{color:var(--red);border-bottom-color:var(--red)}
+  /* Product grid → 2 columns on mobile */
+  .prod-grid{grid-template-columns:1fr 1fr;gap:0.9rem}
+  .pc-img{aspect-ratio:1/1}
+  .pc-body{padding:0.85rem}
+  .pc-name{font-size:0.86rem}
+  .pc-tag{font-size:0.78rem}
+  /* Intro text smaller */
+  .psec-intro p{font-size:0.95rem}
+  .prod-cat-nav{position:static}
+  .story-diff{padding:1.5rem 1.4rem;margin-top:1rem}
+
+  .cform{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.4rem;gap:1rem}
+  .footer-r{text-align:center}
+}
+@media(max-width:480px){
+  .sec{padding:3.5rem 1rem}
+  nav{padding:.8rem 1rem}
+  .hero-inner{padding:100px 1rem 2.5rem}
+  .prod-sec{padding-top:2rem!important;padding-bottom:1.5rem!important}
+  .story-sec{padding-top:1.5rem!important}
+  .hero-logo{font-size:clamp(3rem,16vw,5rem)}
+  .hero-motto{font-size:1.05rem}
+  .btn-p{padding:.8rem 1.6rem;font-size:0.65rem}
+  .sh{font-size:clamp(1.6rem,6vw,2.2rem)}
+  .sp{font-size:1rem}
+  .flow-strip{flex-wrap:wrap}
+  .fnode{min-width:50%}
+  .pcbtn{padding:.75rem 0.5rem;font-size:0.56rem}
+  .prod-grid{grid-template-columns:1fr 1fr;gap:0.6rem}
+  .pc-body{padding:0.7rem}
+  .pc-name{font-size:0.78rem}
+  .pc-tag{font-size:0.72rem}
+  .pc-arrow{font-size:0.52rem;margin-top:0.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">Azeta<sup style="font-size:0.50em;vertical-align:super;opacity:0.7">®</sup></span>
+    <span class="nav-brand-motto" style="color:#B5321E;">Tree to Bar · Premium Single Origin Cocoa Products</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#sustain">Our Farm</a></li>
+    <li><a href="#process">Tree to Bar</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="#products" onclick="closeMenu()">Products</a>
+  <a href="#story" onclick="closeMenu()">Our Story</a>
+  <a href="#sustain" onclick="closeMenu()">Our Farm</a>
+  <a href="#process" onclick="closeMenu()">Tree to Bar</a>
+  <a href="#contact" onclick="closeMenu()">Enquire Now</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div>
+
+      <p class="hero-motto">Tree to Bar. Heart to Taste.</p>
+      <p class="hero-desc">Azeta crafts couverture chocolate and cacao ingredients from beans that are grown, fermented, and processed entirely in house in the cacao growing hills near the Anamalai Tiger Reserve in Pollachi, Tamil Nadu.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-p">Explore Products</a>
+        <a href="#story" class="btn-g">Our Story</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section class="sec prod-sec" id="products">
+  <div class="sec-inner">
+    <p class="eyebrow">Our Products</p>
+    <h2 class="sh">Crafted from <em>One Bean</em></h2>
+    <div class="prod-cat-nav" id="prodCatNav">
+      <button class="pcbtn active" data-cat="couverture">Couverture Bars</button>
+      <button class="pcbtn" data-cat="cacao">Cacao Products</button>
+      <button class="pcbtn" data-cat="coatings">Coated Snacks</button>
+      <button class="pcbtn" data-cat="fillings">Fillings</button>
+    </div>
+
+    <div id="prodCategories"><!-- populated by JS from products-data.js --></div>
+
+    <div class="story-diff">
+      <p class="story-diff-t">What Makes Azeta Different ?</p>
+      <p>Single origin traceability from pod to packaged bar. Traditional wooden box fermentation. In house roasting, grinding, tempering. Pesticide free cultivation. No third party processing, full flavour control at every stage.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STORY ── -->
+<section class="sec story-sec" id="story">
+  <div class="sec-inner">
+    <div class="story-grid">
+      <div>
+        <div class="story-images">
+          <div class="story-pq">
+            <p>&ldquo;From our family cacao farm to a finished chocolate bar - Azeta controls every step, so every bar carries the honest character of Anamalai cacao.&rdquo;</p>
+            <cite>&mdash; Vibhu Nishanth, Founder</cite>
+          </div>
+          <div class="story-img-main">
+            <img src="images/hero-bar.png" loading="lazy" decoding="async" alt="Azeta couverture chocolate bar on a bed of cacao beans">
+          </div>
+          <div class="story-img-sub">
+            <img src="images/process-harvest.png" loading="lazy" decoding="async" alt="Hands sorting freshly harvested cacao beans">
+          </div>
+          <div class="story-img-sub">
+            <img src="images/process-ferment.png" loading="lazy" decoding="async" alt="Cacao beans fermenting in traditional wooden box">
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Our Story</p>
+        <h2 class="sh">Where <em>Science</em> Meets the Soil</h2>
+        <div class="divdr"></div>
+        <p class="sp">Azeta is a tree-to-bar chocolate brand born in the serene cacao growing region of Anamalai, Tamil Nadu. Founded by <strong style="color:var(--brown-800);font-weight:500;">Vibhu Nishanth</strong>, a chemical engineer turned chocolate craftsman, Azeta is where scientific precision meets agricultural heritage.</p>
+        <p class="sp">For many years the cacao cultivated from our family owned farm was sold to commercial brands in India. Today, with in house grinding, fermentation and world class machinery, we have created Azeta, making a myriad of quality cacao products, while being ethical and hygienic.</p>
+        <p class="sp">By combining time honoured practices with modern process control, Azeta delivers chocolate that balances depth, consistency, and character.</p>
+        <div class="story-bdg">
+          <div class="sbdg"><p>Tree to Bar</p><p> End to End Control</p></div>
+          <div class="sbdg"><p>Anamalai</p><p>Single Origin</p></div>
+          <div class="sbdg"><p>No Pesticides</p><p>Ethical Farming</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUSTAINABILITY / FARM ── -->
+<section class="sec sustain-sec" id="sustain">
+  <div class="sec-inner">
+    <div class="sustain-intro">
+      <div>
+        <p class="eyebrow">Our Farm</p>
+        <h2 class="sh">The Home of Our <em>Cacao Trees</em></h2>
+        <div class="divdr"></div>
+        <p class="sp">Nestled in the forest areas near the Anamalai Tiger Reserve lies our cacao farm. This farm is not just home to <em>Theobroma Cacao</em>,the cacao tree but also hosts a multitude of other cultivation crops including Coconut, Areca nut, Nutmeg and Pepper.</p>
+        <p class="sp" style="margin-top:1rem">At our farm, we believe in a sustainable farming system where we don't disturb the ecosystem, wildlife, or use any pesticides. Water is managed through controlled drip irrigation, and harvesting is done entirely by hand.</p>
+        <div class="scards">
+          <div class="scard"><h4>No Pesticides</h4><p>Our farming follows pesticide free practices, working with the land rather than against it.</p></div>
+          <div class="scard"><h4>Multi Crop Farming</h4><p>Coconut, Areca nut, Nutmeg and Pepper grow alongside cacao, promoting natural biodiversity.</p></div>
+          <div class="scard"><h4>Hand Harvesting</h4><p>Every pod is manually harvested at peak ripeness and processed on site the same day.</p></div>
+          <div class="scard"><h4>Drip Irrigation</h4><p>Water efficient irrigation keeps the soil healthy without stressing surrounding ecosystems.</p></div>
+        </div>
+      </div>
+      <div class="sustain-img">
+        <img src="images/sustain-pods.jpeg" loading="lazy" decoding="async" alt="Cacao pods growing on trees in the Anamalai plantation">
+      </div>
+    </div>
+    <div class="sustain-bottom">
+      <div class="sustain-bottom-img">
+        <img src="images/sustain-tiger.png" loading="lazy" decoding="async" alt="Tiger in the Anamalai Tiger Reserve, near Anamalai">
+      </div>
+      <div class="sustain-bottom-text">
+        <p class="eyebrow">Anamalai Tiger Reserve</p>
+        <h3>Growing in the Shadow of the <em>Wild</em></h3>
+        <p>Our cacao grows near one of India's most protected forest reserves. We farm in a way that respects the wildlife corridor, preserves soil integrity, and avoids chemical intervention because the health of the land is the foundation of every bar we make.</p>
+        <div class="sustain-loc">
+          <p class="lbl">Location</p>
+          <p class="val">Anamalai, Tamil Nadu, India</p>
+          <p class="sub">Near the Anamalai Tiger Reserve · Western Ghats</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TREE TO BAR PROCESS (brief) ── -->
+<section class="sec ttb-sec" id="process">
+  <div class="sec-inner">
+    <div class="ttb-brief-grid">
+      <div>
+        <p class="eyebrow">Our Process</p>
+        <h2 class="sh">Tree to Bar — <em>Every Step, In House</em></h2>
+        <div class="ttb-intro">
+          <p>At Azeta, we control chocolate from the moment a pod is harvested to the moment a bar is wrapped. <strong>No third party processors. No compromise.</strong> Every stage, from harvest to tempering, is performed under our own roof, giving us total control over flavour, texture, and consistency.</p>
+        </div>
+        <div class="flow-strip">
+          <div class="fnode"><div class="fnode-num">01</div><div class="fnode-lbl">Harvest</div></div>
+          <div class="fnode"><div class="fnode-num">02</div><div class="fnode-lbl">Fermentation</div></div>
+          <div class="fnode"><div class="fnode-num">03</div><div class="fnode-lbl">Sun Drying</div></div>
+          <div class="fnode"><div class="fnode-num">04</div><div class="fnode-lbl">Sorting</div></div>
+          <div class="fnode"><div class="fnode-num">05</div><div class="fnode-lbl">Roasting</div></div>
+          <div class="fnode"><div class="fnode-num">06</div><div class="fnode-lbl">Grinding</div></div>
+          <div class="fnode"><div class="fnode-num">07</div><div class="fnode-lbl">Tempering</div></div>
+        </div>
+        <a href="process.html" class="btn-p" style="margin-top:2.5rem">Read the Full Process</a>
+      </div>
+      <div class="ttb-brief-img">
+        <img src="images/process-tempering.png" loading="lazy" decoding="async" alt="Chocolate tempering machine at Azeta">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="sec contact-sec" id="contact">
+  <div class="sec-inner">
+    <div class="contact-inner">
+
+      <div>
+        <p class="eyebrow" style="margin-bottom:1.5rem">Our Details to Get in Touch</p>
+        <div class="cdetail"><p class="cdetail-lbl">Brand</p><p class="cdetail-val">Azeta<sup style="font-size:.55rem;vertical-align:super">®</sup> Chocolate</p></div>
+        <div class="cdetail"><p class="cdetail-lbl">Address</p><p class="cdetail-val" style="font-size:.9rem;line-height:1.6">Plot No. 2, Extension 4, Rajarajeshwari Nagar, Pollachi, Tamil Nadu 642002, India</p></div>
+        <div class="cdetail"><p class="cdetail-lbl">Phone</p><p class="cdetail-val"><a href="tel:+917598670085" style="color:inherit;text-decoration:none">+91 86680 53160</a></p></div>
+        <div class="cdetail"><p class="cdetail-lbl">Email</p><p class="cdetail-val" style="font-size:.88rem"><a href="mailto:azetacocoa@gmail.com" style="color:inherit;text-decoration:none">azetacocoa@gmail.com</a></p></div>
+        <div class="fssai-badge"><p>FSSAI Lic. No. !To be added!</p></div>
+        <div class="ship-note">
+          <p><strong>Shipping:</strong> We ship chocolates and Cocoa products across India and internationally. For bulk and export enquiries, our team will respond with pricing and logistics details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p class="footer-brand">AZETA<sup style="font-size:.55rem;vertical-align:super">®</sup></p>
+    <p class="footer-motto">Tree to Bar · Heart to Taste · Anamalai, Tamil Nadu</p>
+  </div>
+  <div class="footer-r">
+    <p><sup style="font-size:1em;vertical-align:super;opacity:0.7">© </sup>2025 Azeta · All Rights Reserved</p>
+    <p>FSSAI Lic. No. !To be added! · Anamalai, Tamil Nadu, India</p>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script>
+function toggleMenu(){
+  const d=document.getElementById('navDrawer'),b=document.getElementById('hamburger');
+  const o=d.classList.toggle('open');
+  b.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.cform-submit');
+  btn.textContent="Thank you! We'll be in touch soon.";
+  btn.style.background='#2D6A2A';
+  setTimeout(()=>{btn.textContent='Send Enquiry';btn.style.background='';e.target.reset();},4500);
+}
+
+/* ── Build all product category sections from products-data.js ── */
+function renderProducts(){
+  const wrap=document.getElementById('prodCategories');
+  if(!wrap||typeof AZETA_CATEGORIES==='undefined')return;
+  wrap.innerHTML=AZETA_CATEGORIES.map(cat=>{
+    const items=AZETA_PRODUCTS.filter(p=>p.category===cat.id);
+    const cards=items.map(p=>`
+      <a class="prod-card" href="product.html?id=${p.id}">
+        <div class="pc-img">
+          ${p.badge?`<span class="pc-badge">${p.badge}</span>`:''}
+          <img src="${p.img}" alt="${p.alt}" loading="lazy">
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">${p.name}</div>
+          <div class="pc-tag">${p.tag}</div>
+          <div class="pc-arrow">View Product →</div>
+        </div>
+      </a>`).join('');
+    return `
+      <div class="prod-category" id="${cat.anchor}">
+        <div class="pcat-head">
+          <span class="pcat-title">${cat.label}</span>
+          <span class="pcat-count">${items.length} Product${items.length!==1?'s':''}</span>
+        </div>
+        <div class="psec-intro"><p>${cat.intro}</p></div>
+        <div class="prod-grid">${cards}</div>
+      </div>`;
+  }).join('');
+
+  /* fade-in for newly rendered cards */
+  document.querySelectorAll('.prod-card').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(16px)';
+    el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+    fadeObs.observe(el);
+  });
+}
+
+/* ── Category nav: smooth-scroll to section (offset for fixed nav) ── */
+function scrollToCategory(catId){
+  const el=document.getElementById('cat-'+catId);
+  if(!el)return;
+  const navH=document.querySelector('nav').offsetHeight;
+  const catNavH=document.getElementById('prodCatNav').offsetHeight;
+  const y=el.getBoundingClientRect().top+window.pageYOffset-(navH+catNavH+16);
+  window.scrollTo({top:y,behavior:'smooth'});
+}
+document.querySelectorAll('#prodCatNav .pcbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#prodCatNav .pcbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    scrollToCategory(btn.dataset.cat);
+  });
+});
+
+/* keep the category nav in sync while the user scrolls (scrollspy) */
+function setupCategorySpy(){
+  const sections=document.querySelectorAll('.prod-category');
+  if(!sections.length)return;
+  const spy=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const catId=entry.target.id.replace('cat-','');
+        document.querySelectorAll('#prodCatNav .pcbtn').forEach(b=>{
+          b.classList.toggle('active',b.dataset.cat===catId);
+        });
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  sections.forEach(s=>spy.observe(s));
+}
+
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:0.07});
+document.querySelectorAll('.scard,.ttb-step,.story-img-sub').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(16px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
+  fadeObs.observe(el);
+});
+
+function syncCatNavOffset(){
+  const navH=document.querySelector('nav').offsetHeight;
+  const catNav=document.getElementById('prodCatNav');
+  if(catNav)catNav.style.top=navH+'px';
+}
+
+renderProducts();
+setupCategorySpy();
+syncCatNavOffset();
+window.addEventListener('resize',syncCatNavOffset);
+</script>
+</body>
+</html>
