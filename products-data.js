@@ -9,13 +9,13 @@ function azetaImgUrl(path, width){
 
 const AZETA_CATEGORIES = [
   { id: 'couverture', label: 'Couverture Bars', anchor: 'cat-couverture',
-    intro: "Couverture chocolate is made with a high percentage of cocoa butter and refined to an exceptionally fine consistency. Every Azeta bar begins with the same traceable, single origin Anamalai cacao, yet each is crafted into a distinct expression of its origin." },
+    intro: "Experience true couverture chocolate crafted from traceable, single origin Anamalai cacao for an exceptionally smooth, luxurious taste." },
   { id: 'cacao', label: 'Cocoa Products', anchor: 'cat-cacao',
-    intro: "Cacao is the raw, unprocessed version of cocoa, rich in nutrients such as iron, magnesium, zinc, and amino acids. Every Azeta cacao product comes from the same traceable Anamalai beans, processed in house without additives." },
+    intro: "Discover premium cocoa products made from traceable, single origin Anamalai beans processed in house for unmatched purity and quality." },
   { id: 'coatings', label: 'Coated Snacks', anchor: 'cat-coatings',
-    intro: "Premium nuts and fruits enrobed in Azeta's own single origin chocolate, the same traceable cacao, now in a snackable form. Each coating is done in house for consistency and quality control." },
+    intro: "Premium nuts wrapped in our signature single origin chocolate, delivering the perfect balance of crunch and indulgence." },
   { id: 'fillings', label: 'Fillings', anchor: 'cat-fillings',
-    intro: "Smooth, stable chocolate fillings formulated for consistent texture, reliable performance, and deep flavour across confectionery, bakery, and filled chocolate applications." }
+    intro: "Premium chocolate fillings with a smooth, creamy texture and rich flavour - perfect for baking, desserts, and confectionery." }
 ];
 
 const AZETA_PRODUCTS = [
