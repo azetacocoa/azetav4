@@ -1,6 +1,12 @@
 /* Azeta — shared product catalogue
    Used by index.html (product grid) and product.html (detail template) */
 
+/* Builds a Netlify Image CDN URL: resizes + auto-converts format (WebP/AVIF) on the fly, cached at the edge.
+   Only takes effect once deployed on Netlify — falls back harmlessly elsewhere. */
+function azetaImgUrl(path, width){
+  return '/.netlify/images?url=/' + path + '&w=' + width;
+}
+
 const AZETA_CATEGORIES = [
   { id: 'couverture', label: 'Couverture Bars', anchor: 'cat-couverture',
     intro: "Couverture chocolate is made with a high percentage of cocoa butter and refined to an exceptionally fine consistency. Every Azeta bar begins with the same traceable, single origin Anamalai cacao, yet each is crafted into a distinct expression of its origin." },
